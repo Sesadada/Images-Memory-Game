@@ -1,9 +1,10 @@
 import './App.css';
-import Gallery from './Gallery'
+import Game from './components/Game'
+
 function App() {
   return (
     <div className="App">
-      <Gallery />
+      <Game />
     </div>
   );
 }
