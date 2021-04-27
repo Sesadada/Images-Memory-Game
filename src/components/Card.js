@@ -10,3 +10,10 @@ const Card = ({temp, isClicked, onClick, id}) => {
 }
 
 export default Card
+
+
+/*
+    const Image = React.memo(function Image({ temp }) {
+        return <img src={temp} alt='game Card' className="images" />;
+      });
+*/
