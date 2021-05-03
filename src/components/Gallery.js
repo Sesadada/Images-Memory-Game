@@ -44,7 +44,8 @@ const Gallery = ({sub, randomClick, historial, setHistorial}) => {
             setIsLoaded(true);
             setError(error);
           }
-        )   
+        ) 
+        // eslint-disable-next-line  
     }, [sub])
 
 

@@ -66,6 +66,7 @@ const Game = () => {
         passingSub()
         window.location.hash = '';
         }})
+        // eslint-disable-next-line
    }, [subject])
 
 
@@ -120,7 +121,7 @@ const Game = () => {
 
 
 
-        
+        // eslint-disable-next-line
     },[isVisible, subject])
 
     return (

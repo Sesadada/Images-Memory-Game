@@ -21,8 +21,9 @@ const Header = (props) => {
           } else if(isWon === false){
               setIsWinning(false)
           }
+          // eslint-disable-next-line
     },[coupleFound, isWon])
-    
+
     return (
         <div>
           <h1>Sirio  Memory Game</h1>
