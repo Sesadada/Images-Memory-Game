@@ -16,7 +16,32 @@
 }
 h1 {
   color: rgb(233, 50, 193);
+  font-size: 25px;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+h4 {
+  color: rgb(201, 23, 162);
+  font-size: 40px;
   padding: 2rem;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.winnerText {
+  margin-bottom: 0.5rem;
+  font-size: 8px;
+}
+.points {
+  margin: auto;
+  margin-bottom: 1rem;
+}
+.attempts,
+.couples {
+  padding: 0.25rem;
+  font-size: 15px;
+  font-weight: 400;
+  color: #031a9e;
 }
 
 .grid {
@@ -31,6 +56,8 @@ h1 {
 }
 
 .images {
+  display: block;
+  pointer-events: none;
   transition: 0.1s;
   border-radius: 50%;
   height: 100px;
@@ -40,7 +67,7 @@ h1 {
 }
 @keyframes flip {
   0% {
-    background-color: rgb(248, 59, 201);
+    background-color: rgb(255, 238, 0);
     transform: scale(1);
   }
   50% {
@@ -49,7 +76,7 @@ h1 {
   }
 
   100% {
-    background-color: rgb(248, 59, 201);
+    background-color: rgb(255, 238, 0);
     transform: scale(1);
   }
 }
@@ -66,7 +93,7 @@ h1 {
 
 @keyframes found {
   0% {
-    background-color: rgb(248, 59, 201);
+    background-color: rgb(255, 238, 0);
     transform: scale(1);
   }
   10% {
@@ -80,7 +107,7 @@ h1 {
     -webkit-filter: saturate(5);
   }
   100% {
-    background-color: rgb(248, 59, 201);
+    background-color: rgb(255, 238, 0);
     transform: scale(1);
   }
 }
@@ -97,7 +124,7 @@ h1 {
   pointer-events: none;
   animation: found;
   animation-duration: 0.4s;
-  background-color: rgb(248, 4, 195);
+  background-color: rgb(0, 255, 136);
 }
 
 .hiddenImages:hover {
@@ -111,7 +138,96 @@ h1 {
 .hidden {
   visibility: hidden;
 }
+.messageHidden {
+  display: none;
+}
+.messageVisible {
+  display: block;
+}
 
 .newInput {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.playBtn {
+  margin: 0.5rem;
+  background: rgb(255, 248, 152);
+  background: linear-gradient(
+    238deg,
+    rgba(255, 248, 152, 1) 0%,
+    rgba(7, 252, 240, 1) 0%,
+    rgba(253, 114, 255, 1) 49%,
+    rgba(255, 250, 0, 1) 100%
+  );
+  background-size: 300px;
+  background-position: left;
+  box-shadow: 0px 15px 20px rgba(83, 104, 96, 0.4);
+
+  color: white;
+  border-radius: 8px;
+  padding: 0.4rem;
+  border: none;
+  width: 15%;
+  transition: 0.3s background-position ease-in-out;
+}
+.playBtn:hover {
+  background-position: right;
+  box-shadow: 0px 5px 10px rgba(83, 104, 96, 0.4);
+}
+
+.finished {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 1rem;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+@media (max-width: 767.98px) {
+  .grid {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 0.5rem;
+  }
+
+  .images {
+    height: 70px;
+    width: 70px;
+  }
+
+  .foundImages {
+    margin-top: 5px;
+    height: 60px;
+    width: 60px;
+  }
+
+  .hiddenImages,
+  .untouchable {
+    height: 70px;
+    width: 70px;
+  }
+  h4 {
+    color: rgb(10, 43, 235);
+    font-size: 25px;
+    font-weight: 500;
+    padding: 1rem;
+  }
+  .newInput {
+    margin-bottom: 1rem;
+  }
+  .playBtn {
+    margin: 0.5rem;
+    font-size: 10px;
+    height: 2rem;
+  }
+  input {
+    padding: 0.4rem;
+    border-radius: 7px;
+    border: none;
+    width: 20vh;
+    height: 1.2rem;
+    box-shadow: 0px 15px 20px rgba(83, 104, 96, 0.4);
+  }
 }

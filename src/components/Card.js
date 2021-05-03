@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Card = ({temp, isClicked, onClick, id}) => {
-    
+const Card = ({temp, onClick, id}) => {
     
     return (
         <div className='hiddenImages' onClick={onClick}>
