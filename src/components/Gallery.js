@@ -7,11 +7,9 @@ const Gallery = ({sub, randomClick, historial, setHistorial}) => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
-    
-
-        
+     
     const checkSub = (nm) => {
-      let final = localStorage.getItem('repeated')
+      let final = sessionStorage.getItem('repeated')
       if(nm === ''){
         setHistorial([...historial, final])
         return final? final: 'cats'

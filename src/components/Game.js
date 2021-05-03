@@ -5,6 +5,7 @@ import Header from './Header'
 
 const Game = () => {
     const [gameInput, setgameInput] = useState('')
+    const [isPlaying, setIsPlaying] = useState(false)
     const [subject, setSubjects] = useState('')
     const [coupleFound, setCoupleFound] = useState(0)
     const [attempts, setAttempts] = useState(0)
@@ -29,18 +30,19 @@ const Game = () => {
     const checker = (actual) => {
       if(actual === historial[historial.length -1] && historial.length !== 0){
         window.location.hash = 'reload';
-        localStorage.setItem('repeated', actual)
+        sessionStorage.setItem('repeated', actual)
         window.location.reload();
         
       } else if(actual === '' && historial.length !== 0){
         window.location.hash = 'reload';
-        localStorage.setItem('repeated', actual)
+        sessionStorage.setItem('repeated', actual)
         window.location.reload();
       }
     }
-
+console.log(historial, historial.length)
     
     const passingSub = () => {
+      setIsPlaying(true)
       gameInput && setHistorial([...historial, gameInput])
       checker(gameInput)
       setSubjects(gameInput)
@@ -60,7 +62,7 @@ const Game = () => {
     useEffect(() => {
     document.addEventListener("DOMContentLoaded", function(event) { 
       if(window.location.hash === "#reload"){
-        let final = localStorage.getItem('repeated')
+        let final = sessionStorage.getItem('repeated')
         setgameInput(final)
         console.log('final', final)
         passingSub()
@@ -123,10 +125,12 @@ const Game = () => {
 
         // eslint-disable-next-line
     },[isVisible, subject])
-
+console.log('isPlaying from game',isPlaying)
     return (
         <div>
           <Header 
+          setIsPlaying={setIsPlaying}
+          isPlaying={isPlaying}
       setIsWon= {setIsWon}
       isWon={isWon}
       isVisible={isVisible}
@@ -143,7 +147,7 @@ const Game = () => {
       setGridVis= {setGridVis}
       gridVis={gridVis}
           />
-                    <div className={isWon? 'messageVisible': 'messageHidden'}>
+          <div className={!isPlaying? 'messageVisible': 'messageHidden'}>
           <NewInput passingSub={passingSub} onChange={onChange} gameInput={gameInput}/>
           </div>
           <div className={gridVis}>
